@@ -1,0 +1,46 @@
+# Filename: ci_cd_pipeline.py
+
+import subprocess
+
+def lint_code():
+    print("Linting code...")
+    # Add your linting command here
+    # For example: subprocess.run(["flake8", "src"])
+    # Replace this with the actual linting command
+
+def run_tests():
+    print("Running tests...")
+    # Add your test command here
+    # For example: subprocess.run(["pytest", "--verbose"])
+    # Replace this with the actual command you use to run tests
+
+def build_application():
+    print("Building the application...")
+    # Add your build command here
+    # For example: subprocess.run(["docker", "build", "-t", "myapp:latest", "."])
+    # Replace this with the actual command you use for building
+
+def deploy_application():
+    print("Deploying the application...")
+    # Add your deployment command here
+    # For example: subprocess.run(["docker", "compose", "up", "-d"])
+    # Replace this with the actual command you use for deployment
+
+if __name__ == "__main__":
+    try:
+        # Stage 1: Lint code
+        lint_code()
+
+        # Stage 2: Run tests
+        run_tests()
+
+        # Stage 3: Build application
+        build_application()
+
+        # Stage 4: Deploy application
+        deploy_application()
+
+        print("CI/CD pipeline successfully completed.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+        exit(1)
